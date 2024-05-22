@@ -10,6 +10,7 @@ class TimeIntervalModel {
 
 List<TimeIntervalModel> timeIntervalData = [
   TimeIntervalModel(item: 'Time'),
+  TimeIntervalModel(item: '1m', isTime: true),
   TimeIntervalModel(item: '1H', isTime: true),
   TimeIntervalModel(item: '2H', isTime: true),
   TimeIntervalModel(item: '4H', isTime: true),

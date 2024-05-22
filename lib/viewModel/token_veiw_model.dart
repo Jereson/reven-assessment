@@ -8,10 +8,16 @@ import 'package:web_socket_channel/status.dart' as status;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class TokenViewModel extends BaseViewModel {
+  String timeInterval = '1m';
   List<Candle> candles = [];
   bool themeIsDark = false;
-  final WebSocketChannel channel = WebSocketChannel.connect(
-      Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@kline_1m'));
+
+  WebSocketChannel channel() {
+    WebSocketChannel channel = WebSocketChannel.connect(Uri.parse(
+        'wss://stream.binance.com:9443/ws/btcusdt@kline_$timeInterval'));
+    return channel;
+  }
+
   final StreamController<List<Candle>> candlesController =
       StreamController.broadcast();
 
@@ -29,7 +35,7 @@ class TokenViewModel extends BaseViewModel {
 
   Future<List<Candle>> fetchCandles() async {
     final uri = Uri.parse(
-        "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=1m");
+        "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=$timeInterval");
     final res = await http.get(uri);
     return (jsonDecode(res.body) as List<dynamic>)
         .map((e) => Candle.fromJson(e))
@@ -39,7 +45,7 @@ class TokenViewModel extends BaseViewModel {
   }
 
   Stream<List<Candle>> getCandles() async* {
-    await for (var event in channel.stream) {
+    await for (var event in channel().stream) {
       final data = json.decode(event);
       final kline = data['k'];
 
@@ -78,7 +84,14 @@ class TokenViewModel extends BaseViewModel {
   }
 
   disposeTokenValue() {
-    channel.sink.close(status.normalClosure);
+    channel().sink.close(status.normalClosure);
     candlesController.close();
+  }
+
+  selectTimeInterval(String time ) async {
+  
+    timeInterval = time;
+    await initializeCandle();
+    setState();
   }
 }

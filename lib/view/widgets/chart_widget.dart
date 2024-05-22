@@ -45,25 +45,33 @@ class ChartWidget extends StatelessWidget {
                           itemCount: timeIntervalData.length,
                           itemBuilder: (context, index) {
                             final timeInterval = timeIntervalData[index];
-                            return Container(
-                              alignment: Alignment.center,
-                              padding: const EdgeInsets.only(right: 28),
-                              child: timeInterval.isImage ?? false
-                                  ? Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset(timeInterval.item,
-                                            height:
-                                                timeInterval.item == imgDropdown
-                                                    ? 8
-                                                    : 20),
-                                      ],
-                                    )
-                                  : Text(
-                                      timeInterval.item,
-                                      style: stA7B1BC50014,
-                                    ),
+                            return GestureDetector(
+                              onTap: () {
+                                if(timeInterval.isTime?? false){
+                                   tVm.selectTimeInterval(timeInterval.item);
+                                }
+                               
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                padding: const EdgeInsets.only(right: 28),
+                                child: timeInterval.isImage ?? false
+                                    ? Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset(timeInterval.item,
+                                              height:
+                                                  timeInterval.item == imgDropdown
+                                                      ? 8
+                                                      : 20),
+                                        ],
+                                      )
+                                    : Text(
+                                        timeInterval.item,
+                                        style: stA7B1BC50014,
+                                      ),
+                              ),
                             );
                           }),
                     ),
