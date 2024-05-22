@@ -44,9 +44,9 @@ class TokenViewModel extends BaseViewModel {
     });
   }
 
-  Future<List<Candle>> fetchCandles() async {
+  Future<List<Candle>> fetchCandles() async { //btcusdt
     final uri = Uri.parse(
-        "https://api.binance.com/api/v3/klines?symbol=BNBUSDT&interval=$timeInterval");
+        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=$timeInterval");
     final res = await http.get(uri);
     return (jsonDecode(res.body) as List<dynamic>)
         .map((e) => Candle.fromJson(e))
@@ -118,7 +118,7 @@ class TokenViewModel extends BaseViewModel {
       bidsController.add(bids);
       asksController.add(asks);
 
-      setState();
+      // setState();
     });
 
     channel2.stream.listen((event) {
@@ -169,7 +169,7 @@ class TokenViewModel extends BaseViewModel {
       asksController.add(asks);
     });
 
-    setState();
+    // setState();
   }
 
   Future<Map<String, List<Order>>> fetchOrderBook() async {

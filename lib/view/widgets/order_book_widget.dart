@@ -101,14 +101,20 @@ class OrderbookWidget extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(order.price.toStringAsFixed(2),
-                                      style: stA7B1BC50012.copyWith(
-                                          color: kcFF6838)),
-                                  Text(order.quantity.toStringAsFixed(4),
-                                      style: stFFFFFF50012),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
+                                    child: Text(order.price.toStringAsFixed(2),
+                                        style: stA7B1BC50012.copyWith(
+                                            color: kcFF6838)),
+                                  ),
+                                  Text(
+                                    order.quantity.toStringAsFixed(4),
+                                    style: stFFFFFF50012,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  const Spacer(),
                                   Text(order.total.toStringAsFixed(4),
                                       style: stFFFFFF50012),
                                 ],
@@ -121,7 +127,7 @@ class OrderbookWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '0.83884  ',
+                      '7637.9300  ',
                       style: stFFFFFF70016.copyWith(color: kc25C26E),
                     ),
                     const Icon(
@@ -129,7 +135,7 @@ class OrderbookWidget extends StatelessWidget {
                       color: kc25C26E,
                       size: 10,
                     ),
-                    const Text('  0.83884', style: stFFFFFF70016),
+                    const Text('  389894.89', style: stFFFFFF70016),
                   ],
                 ),
                 const SizedBox(height: 14),
@@ -149,14 +155,17 @@ class OrderbookWidget extends StatelessWidget {
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(order.price.toStringAsFixed(2),
-                                      style: stA7B1BC50012.copyWith(
-                                          color: kc25C26E)),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.43,
+                                    child: Text(order.price.toStringAsFixed(2),
+                                        style: stA7B1BC50012.copyWith(
+                                            color: kc25C26E)),
+                                  ),
                                   Text(order.quantity.toStringAsFixed(4),
                                       style: stFFFFFF50012),
+                                  const Spacer(),
                                   Text(order.total.toStringAsFixed(3),
                                       style: stFFFFFF50012),
                                 ],
