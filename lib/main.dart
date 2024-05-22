@@ -236,7 +236,7 @@ class MyApp extends StatelessWidget {
 //       StreamController.broadcast();
 //   final StreamController<List<Order>> _asksController =
 //       StreamController.broadcast();
-//   final WebSocketChannel channel = WebSocketChannel.connect(
+//   final WebSocketChannel channel2 = WebSocketChannel.connect(
 //       Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@depth'));
 
 //   @override
@@ -251,7 +251,7 @@ class MyApp extends StatelessWidget {
 //       _asksController.add(asks);
 //     });
 
-//     channel.stream.listen((event) {
+//     channel2.stream.listen((event) {
 //       final data = json.decode(event);
 //       final List<dynamic> newBids = data['b'];
 //       final List<dynamic> newAsks = data['a'];
@@ -304,7 +304,7 @@ class MyApp extends StatelessWidget {
 
 //   @override
 //   void dispose() {
-//     channel.sink.close(status.normalClosure);
+//     channel2.sink.close(status.normalClosure);
 //     _bidsController.close();
 //     _asksController.close();
 //     super.dispose();
@@ -407,14 +407,14 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-// class Order {
-//   final double price;
-//   final double quantity;
-//   final double total;
+class Order {
+  final double price;
+  final double quantity;
+  final double total;
 
-//   Order(this.price, this.quantity, this.total);
-// }
+  Order(this.price, this.quantity, this.total);
+}
 
-// // title for the price.
-// // subtitle for the quantity.
-// // trailing for the total.
+// title for the price.
+// subtitle for the quantity.
+// trailing for the total.
