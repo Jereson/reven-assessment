@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+const Color kcPrimaryColor = Color(0xFF17181B);
+const Color kcCC6607 = Color(0xFFD13303);
+const Color kcWhite = Color(0xFFFFFFFF);
+const Color kc00C076 = Color(0xFF00C076);
+const Color kcBlack = Color(0xFF000000);
+const Color kcA7B1BC = Color(0xFFA7B1BC);
+const Color kc20252B = Color(0xFF20252B);
+const Color kc262932 = Color(0xFF262932);
+const Color kc1C2127 = Color(0xFF1C2127);
+const Color kcE9F0FF = Color(0xFFE9F0FF);
+const kcTransparent = Colors.transparent;
+const Color kc353945 = Color(0xFF353945);
+const Color kc21262C = Color(0xFF21262C);
+const Color kc25C26E = Color(0xFF25C26E);
+const Color kcFF554A = Color(0xFFFF554A);
+const Color kc777E90 = Color(0xFF777E90);
+const Color kcFF6838 = Color(0xFFFF6838);
+const Color kc394047 = Color(0xff394047);
+const Color kc373B3F = Color(0xFF373B3F);
+const Color kc483BEB = Color(0xFF483BEB);
+const Color kc7847E1 = Color(0xFF7847E1);
+const Color kcDD568D = Color(0xFFDD568D);
+const Color kc2764FF = Color(0xFF2764FF);
