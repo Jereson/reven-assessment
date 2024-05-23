@@ -1,16 +1,9 @@
-# raven_assessment
 
-A new Flutter project.
+Bellow is the link to the video demo of Jeremiah Olugu
 
-## Getting Started
+Note: If the video is not playing on this github, copy the link and paste to web broswer URL to play.
 
-This project is a starting point for a Flutter application.
+https://github.com/Jereson/reven-assessment/assets/38064440/f05af632-3be5-47f2-8725-efa22fd2c5db
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Here is the gif Demo
+![Jeremiah Assessment Demo](https://github.com/Jereson/reven-assessment/assets/38064440/325509a3-98bd-49d7-868d-bdcb0855704b)
