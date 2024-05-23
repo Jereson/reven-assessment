@@ -47,12 +47,13 @@ class ChartWidget extends StatelessWidget {
                             return GestureDetector(
                               onTap: () {
                                 if (timeInterval.isTime ?? false) {
-                                  tVm.selectTimeInterval(timeInterval.item);
+                                  tVm.selectTimeInterval(
+                                      timeInterval.item, index);
                                 }
                               },
                               child: Container(
                                 alignment: Alignment.center,
-                                padding: const EdgeInsets.only(right: 28),
+                                padding: const EdgeInsets.only(right: 14),
                                 child: timeInterval.isImage ?? false
                                     ? Column(
                                         mainAxisAlignment:
@@ -65,9 +66,24 @@ class ChartWidget extends StatelessWidget {
                                                   : 20),
                                         ],
                                       )
-                                    : Text(
-                                        timeInterval.item,
-                                        style: stA7B1BC50014,
+                                    : Container(
+                                        height: 28,
+                                        alignment: Alignment.center,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(14),
+                                            color: (timeInterval.isTime ??
+                                                        false) &&
+                                                    tVm.currentTimeIntervalIndex ==
+                                                        index
+                                                ? kc555C63
+                                                : kcTransparent),
+                                        child: Text(
+                                          timeInterval.item,
+                                          style: stA7B1BC50014,
+                                        ),
                                       ),
                               ),
                             );
@@ -110,7 +126,7 @@ class ChartWidget extends StatelessWidget {
                                       // showToolbar: true,
                                       candles: snapshot.data!,
 
-                                      watermark: 'Matinex',
+                                      watermark: 'BTC/USDT',
                                       onLoadMoreCandles: () =>
                                           tVm.onPageReload(),
                                     ),

@@ -10,6 +10,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 class TokenViewModel extends BaseViewModel {
   int currentOrderTab =0;
+  int currentTimeIntervalIndex =1;
   String timeInterval = '1m';
   bool isChartTab = true;
   List<Candle> candles = [];
@@ -108,7 +109,8 @@ class TokenViewModel extends BaseViewModel {
     candlesController.close();
   }
 
-  selectTimeInterval(String time) async {
+  selectTimeInterval(String time,int index) async {
+    currentTimeIntervalIndex =index;
     timeInterval = time;
     await initializeCandle();
     setState();

@@ -58,7 +58,7 @@ class TokenWidget extends StatelessWidget {
                                                     ],
                                                   ),
                                                   const Text(
-                                                    '  BTC/UST',
+                                                    '  BTC/USDT',
                                                     style: stFFFFFF50018,
                                                   ),
                                                   const Spacer(),
@@ -79,10 +79,8 @@ class TokenWidget extends StatelessWidget {
                                                               // value: tVm.selectedTxnType,
                                                               child: Text(
                                                                 e.pairs,
-                                                                style: stFFFFFF50018
-                                                                    .copyWith(
-                                                                        color:
-                                                                            kcBlack),
+                                                                style:
+                                                                    stFFFFFF50018,
                                                               ),
                                                             ),
                                                           )

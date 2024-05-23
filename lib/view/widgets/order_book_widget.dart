@@ -64,8 +64,8 @@ class OrderbookWidget extends StatelessWidget {
                           itemBuilder: (BuildContext context) => numbers
                               .map(
                                 (e) => PopupMenuItem<String>(
-                                  // onTap: () => tVm.selectTransactionType(e),
-                                  // value: tVm.selectedTxnType,
+                                  // onTap: () => 
+                                  // value: 
                                   child: Text(
                                     e.pairs,
                                     style:
