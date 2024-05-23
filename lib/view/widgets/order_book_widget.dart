@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:raven_assessment/getit.dart';
-import 'package:raven_assessment/main.dart';
+import 'package:raven_assessment/model/order_model.dart';
 import 'package:raven_assessment/utilities/color_utils.dart';
 import 'package:raven_assessment/utilities/image_util.dart';
 import 'package:raven_assessment/utilities/text_style.utils.dart';
 import 'package:raven_assessment/view/base_view_builder.dart';
 import 'package:raven_assessment/view/widgets/random_widget.dart';
-import 'package:raven_assessment/viewModel/token_veiw_model.dart';
+import 'package:raven_assessment/viewModel/order_book_view_model.dart';
 
 class OrderbookWidget extends StatelessWidget {
   const OrderbookWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BaseViewBuilder<TokenViewModel>(
+    return BaseViewBuilder<OrderBookViewModel>(
         initState: (init) {
           init.initiaLizeFecchOrderBook();
         },
         model: getIt(),
-        builder: (tVm, _) {
+        builder: (oVm, _) {
           return Container(
             color: kcPrimaryColor,
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -26,11 +26,17 @@ class OrderbookWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    flagImage(imgFlag1, true),
+                    flagImage(imgFlag1, () {}, true),
                     const SizedBox(width: 5),
-                    flagImage(imgFlag1),
+                    flagImage(
+                      imgFlag1,
+                      () {},
+                    ),
                     const SizedBox(width: 5),
-                    flagImage(imgFlag1),
+                    flagImage(
+                      imgFlag1,
+                      () {},
+                    ),
                     const Spacer(),
                     Container(
                       width: 63,
@@ -85,8 +91,8 @@ class OrderbookWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                StreamBuilder<List<Order>>(
-                    stream: tVm.bidsController.stream,
+                StreamBuilder<List<OrderModel>>(
+                    stream: oVm.bidsController.stream,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData || snapshot.data!.isEmpty) {
                         return const Center(child: CircularProgressIndicator());
@@ -97,7 +103,7 @@ class OrderbookWidget extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: snapshot.data!.take(5).length,
                           itemBuilder: (context, index) {
-                            Order order = snapshot.data![index];
+                            OrderModel order = snapshot.data![index];
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
                               child: Row(
@@ -139,8 +145,8 @@ class OrderbookWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 14),
-                StreamBuilder<List<Order>>(
-                    stream: tVm.asksController.stream,
+                StreamBuilder<List<OrderModel>>(
+                    stream: oVm.asksController.stream,
                     builder: (context, snapshot) {
                       if (!snapshot.hasData || snapshot.data!.isEmpty) {
                         return const Center(child: CircularProgressIndicator());
@@ -151,7 +157,7 @@ class OrderbookWidget extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: snapshot.data!.take(5).length,
                           itemBuilder: (context, index) {
-                            Order order = snapshot.data![index];
+                            OrderModel order = snapshot.data![index];
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
                               child: Row(

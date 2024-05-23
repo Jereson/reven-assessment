@@ -35,7 +35,6 @@ class ChartWidget extends StatelessWidget {
                           color: kcPrimaryColor,
                           border: Border(
                             top: BorderSide(color: kcBlack, width: 0.5),
-                            // bottom: BorderSide(color: kc262932, width: 0.5),
                             left: BorderSide(color: kc262932, width: 0.5),
                             right: BorderSide(color: kc262932, width: 0.5),
                           )),
@@ -47,10 +46,9 @@ class ChartWidget extends StatelessWidget {
                             final timeInterval = timeIntervalData[index];
                             return GestureDetector(
                               onTap: () {
-                                if(timeInterval.isTime?? false){
-                                   tVm.selectTimeInterval(timeInterval.item);
+                                if (timeInterval.isTime ?? false) {
+                                  tVm.selectTimeInterval(timeInterval.item);
                                 }
-                               
                               },
                               child: Container(
                                 alignment: Alignment.center,
@@ -61,10 +59,10 @@ class ChartWidget extends StatelessWidget {
                                             MainAxisAlignment.center,
                                         children: [
                                           Image.asset(timeInterval.item,
-                                              height:
-                                                  timeInterval.item == imgDropdown
-                                                      ? 8
-                                                      : 20),
+                                              height: timeInterval.item ==
+                                                      imgDropdown
+                                                  ? 8
+                                                  : 20),
                                         ],
                                       )
                                     : Text(
@@ -124,14 +122,19 @@ class ChartWidget extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: orderTabText.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                  color: kc21262C,
-                                  borderRadius: BorderRadius.circular(8)),
-                              alignment: Alignment.center,
-                              width: size.width * 0.4,
-                              child: Text(orderTabText[index],
-                                  style: stFFFFFF70014),
+                            return GestureDetector(
+                              onTap: () => tVm.resetCurrentOrderTab(index),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: tVm.currentOrderTab == index
+                                        ? kc21262C
+                                        : kcTransparent,
+                                    borderRadius: BorderRadius.circular(8)),
+                                alignment: Alignment.center,
+                                width: size.width * 0.4,
+                                child: Text(orderTabText[index],
+                                    style: stFFFFFF70014),
+                              ),
                             );
                           }),
                     ),

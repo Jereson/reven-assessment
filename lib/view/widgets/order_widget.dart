@@ -42,7 +42,6 @@ class OrderWidget extends StatelessWidget {
                 title: 'Buy',
                 bgColor: kc25C26E,
                 callback: () {
-                  print('object!');
                   ShowOrderModal(context);
                 },
               ),

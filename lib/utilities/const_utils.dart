@@ -9,5 +9,5 @@ const String networkErrorMessage =
 const String timeOutError = 'Timeout, please try again!';
 const String unknonError = "Error occured try again later";
 const Duration dbTimeOut = Duration(seconds: 45);
-const baseUrl = 'https://phinga.ng/api/v1';
+const baseUrl = 'https://api.binance.com/api/v3';
 const authenticateError = 'Unauthorized: Token expired';

@@ -1,4 +1,7 @@
-//st == TextStyle key work
+//st == TextStyle key preffix
+//1st six character stands for color code
+//2nd two character is the fontweight
+//last one or two character is the font size
 
 import 'package:flutter/material.dart';
 import 'package:raven_assessment/utilities/color_utils.dart';
